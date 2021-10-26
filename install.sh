@@ -1,3 +1,26 @@
+  echo   "----- ..................................................... -----"
+  echo     "----- ....... CLUSTER-${GCLOUD_K8S_CLUSTER} .......... -----"
+  echo   "----- ..................................................... -----"
+
+            
+export GCLOUD_USER="$(gcloud info --format='value(config.account)')"
+export GCLOUD_PROJECT="artlist-ai-dev"
+export GCLOUD_REGION="europe-west4-a"
+export GCLOUD_K8S_CLUSTER="cluster-ml"
+export GCLOUD_K8S_VERSION="1.20"
+export GCLOUD_ENV_NAME="innovation"
+
+  echo   "----- ..................................................... -----"
+  echo       "----- ....... PROJECT-${GCLOUD_PROJECT} .......... -----"
+  echo   "----- ..................................................... -----"
+
+gcloud config set project ${GCLOUD_PROJECT}
+gcloud config set compute/region ${GCLOUD_REGION}
+       
+  echo   "----- ..................................................... -----"
+  echo     "----- .... CREATE-CLUSTER-${GCLOUD_K8S_CLUSTER} ....... -----"
+  echo   "----- ..................................................... -----"
+  
 gcloud container clusters create ${GCLOUD_K8S_CLUSTER} \
 --create-subnetwork name=${GCLOUD_K8S_CLUSTER} \
 --enable-ip-alias \
@@ -57,7 +80,7 @@ kubectl create clusterrolebinding cluster-admin-binding \
            echo   "----- ..................................................... -----"
            echo    "----- .... CLUSTER-${GCLOUD_K8S_CLUSTER}-COMPLETE ....... -----"
            echo   "----- ..................................................... -----"
-sleep 450
+sleep 300
 
 
            echo   "----- ..................................................... -----"
