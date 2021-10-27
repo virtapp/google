@@ -8,7 +8,7 @@
 export GCLOUD_USER="$(gcloud info --format='value(config.account)')"
 export GCLOUD_PROJECT="artlist-ai-dev"
 export GCLOUD_REGION="europe-west4-a"
-export GCLOUD_K8S_CLUSTER="cluster-ml"
+export GCLOUD_K8S_CLUSTER="gke-ml-server"
 export GCLOUD_K8S_VERSION="1.20"
 export GCLOUD_ENV_NAME="innovation"
 
